@@ -88,6 +88,9 @@ https://github.com/ckan/ckanext-harvest
 https://github.com/ckan/ckan
 For installation of ckan, please use "install from source" mentioned in http://docs.ckan.org/en/2.8/
 
+HISTORY:
+==============
 
-
+This crawler was made taking ckan-aggregator-py as inspiration. ckan-aggregator-py could have been directly used but ckanclient library is DEPRECATED. Alternative and more robust library, ckanapi is used to give similar functionality.
+Plan of action was to adapt ckan-aggregator-py into Jython and directly use it to incorporate into Squirrel but Jython has it's own issues with ckanapi library. Jython uses urllib3 implementation for ckanapi instead of requests. Last stable update for Jython has support yet it failed to work as ckanapi uses https requests and Jython only supports http requests. From JAVA9 Jython will have much more security protocol issues. Alternative was to implement everything in Python and use message queue for passing data between Java and Python. Only limition is maximum message size = 1GigaByte.
 
